@@ -1,4 +1,4 @@
-# ecommerce_firebase
+# phones shop
 
 A new Flutter project.
 
