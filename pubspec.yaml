@@ -46,7 +46,6 @@ dependencies:
   colorful_safe_area:
   email_validator:
   flutter_hooks:
-  flutter_svg:
   freezed_annotation:
   get_it:
   json_annotation:
