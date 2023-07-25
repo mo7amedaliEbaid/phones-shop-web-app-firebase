@@ -53,16 +53,16 @@ class MyAppState extends State<MyApp> {
                   onPressed: () =>
                       Provider.of<PageKeyProvider>(context, listen: false).key =
                           '/',
-                  child: SvgPicture.asset(
-                    'assets/images/logo.svg',
-                    fit: BoxFit.fitWidth,
-                  ),
+                  child: Text("Phones Shop",style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold
+                  ),)
                 ),
               ),
               centerTitle: false,
               elevation: 6,
-              backgroundColor: Colors.white,
-              shadowColor: Colors.orange,
+              //backgroundColor: Colors.white,
+              shadowColor: Colors.blueGrey,
               actions: sizingInformation.isDesktop
                   ? desktopNavigationAppBarActions(context)
                   : mobileNavigationAppBarActions(context),

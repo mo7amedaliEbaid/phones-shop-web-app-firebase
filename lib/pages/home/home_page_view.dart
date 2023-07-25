@@ -29,13 +29,14 @@ class HomePageView extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 text: 'Don\'t have a phone?\n',
-                style: Theme.of(context).textTheme.headline2,
-                children: [
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(color: Colors.blue),
+                children:[
                   TextSpan(
                     text: 'Start shopping',
-                    style: Theme.of(context).textTheme.headline4!.copyWith(
-                          color: Theme.of(context).primaryColor,
-                        ),
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                          color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         Provider.of<PageKeyProvider>(context, listen: false)

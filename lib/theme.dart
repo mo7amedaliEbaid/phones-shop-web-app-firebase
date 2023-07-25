@@ -4,6 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData get theme {
   return ThemeData(
     primarySwatch: Colors.blue,
+    scaffoldBackgroundColor: Color(0xff525767),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Color(0xff151928),
+    ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     fontFamily: GoogleFonts.mPlusRounded1c().fontFamily,
     textButtonTheme: TextButtonThemeData(
