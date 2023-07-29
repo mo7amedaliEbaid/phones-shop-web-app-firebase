@@ -25,20 +25,20 @@ class SignInPageView extends StatelessWidget {
         final TextEditingController emailController = TextEditingController();
         final TextEditingController passwordController =
             TextEditingController();
-        final OrangeTextFormField emailField = OrangeTextFormField(
+        final BrownTextFormField emailField = BrownTextFormField(
           controller: emailController,
           labelText: 'Email',
           keyboardType: TextInputType.emailAddress,
           validator: model.validateEmail,
         );
-        final OrangeTextFormField passwordField = OrangeTextFormField(
+        final BrownTextFormField passwordField = BrownTextFormField(
           controller: passwordController,
           labelText: 'Password',
           obscureText: true,
           keyboardType: TextInputType.visiblePassword,
           validator: model.validatePassword,
         );
-        final List<OrangeTextFormField> logInFormFields = [
+        final List<BrownTextFormField> logInFormFields = [
           emailField,
           passwordField,
         ];

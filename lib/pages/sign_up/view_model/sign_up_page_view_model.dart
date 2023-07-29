@@ -62,8 +62,10 @@ class SignUpPageViewModel extends BaseViewModel with Validators {
       if (result is bool) {
         if (result) {
           showDialog(
+
             context: context,
             builder: (context) => AlertDialog(
+
               title: const Text('Success'),
               content: const Text('Account created successfully'),
               actions: <Widget>[

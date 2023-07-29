@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class OrangeTextFormField extends StatefulWidget {
+class BrownTextFormField extends StatefulWidget {
   final bool isPasswordField;
   final bool obscureText;
   final String labelText;
@@ -8,7 +8,7 @@ class OrangeTextFormField extends StatefulWidget {
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
 
-  const OrangeTextFormField({
+  const BrownTextFormField({
     Key? key,
     this.isPasswordField = false,
     this.obscureText = false,
@@ -19,10 +19,10 @@ class OrangeTextFormField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<OrangeTextFormField> createState() => _OrangeTextFormFieldState();
+  State<BrownTextFormField> createState() => _BrownTextFormFieldState();
 }
 
-class _OrangeTextFormFieldState extends State<OrangeTextFormField> {
+class _BrownTextFormFieldState extends State<BrownTextFormField> {
   bool _obscureText = true;
 
   @override
@@ -32,15 +32,15 @@ class _OrangeTextFormFieldState extends State<OrangeTextFormField> {
           ? TextInputType.visiblePassword
           : widget.keyboardType,
       controller: widget.controller,
-      cursorColor: Colors.orange,
+      cursorColor: Color(0xff6c520e),
       decoration: InputDecoration(
         labelStyle: const TextStyle(
-          color: Colors.orange,
+          color: Color(0xff6c520e),
           fontSize: 18,
           fontWeight: FontWeight.w800,
         ),
         floatingLabelStyle: const TextStyle(
-          color: Colors.orange,
+          color: Color(0xff6c520e),
           fontSize: 18,
           fontWeight: FontWeight.w800,
         ),
@@ -63,7 +63,7 @@ class _OrangeTextFormFieldState extends State<OrangeTextFormField> {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(
-            color: Colors.orange,
+            color: Color(0xff6c520e),
             width: 3,
           ),
         ),

@@ -32,67 +32,67 @@ class AddPhonePageView extends StatelessWidget {
         final stockController = TextEditingController();
         final sarContrller = TextEditingController();
 
-        final modelInputfield = OrangeTextFormField(
+        final modelInputfield = BrownTextFormField(
           controller: modelController,
           labelText: 'Model',
           validator: model.validateModel,
           keyboardType: TextInputType.text,
         );
-        final imageUrlInputfield = OrangeTextFormField(
+        final imageUrlInputfield = BrownTextFormField(
           controller: imageUrlController,
           labelText: 'Image Url',
           validator: model.validateImageUrl,
           keyboardType: TextInputType.url,
         );
-        final socInputfield = OrangeTextFormField(
+        final socInputfield = BrownTextFormField(
           controller: socController,
           labelText: 'Soc',
           validator: model.validateSoc,
           keyboardType: TextInputType.text,
         );
-        final ramInputfield = OrangeTextFormField(
+        final ramInputfield = BrownTextFormField(
           controller: ramController,
           labelText: 'Ram',
           validator: model.validateRam,
           keyboardType: TextInputType.number,
         );
-        final storageInputfield = OrangeTextFormField(
+        final storageInputfield = BrownTextFormField(
           controller: storageController,
           labelText: 'Storage',
           validator: model.validateStorage,
           keyboardType: TextInputType.text,
         );
-        final screenSizeInputfield = OrangeTextFormField(
+        final screenSizeInputfield = BrownTextFormField(
           controller: screenSizeController,
           labelText: 'Screen Size',
           validator: model.validateScreenSize,
           keyboardType: TextInputType.number,
         );
-        final batteryInputfield = OrangeTextFormField(
+        final batteryInputfield = BrownTextFormField(
           controller: batteryController,
           labelText: 'Battery',
           validator: model.validateBattery,
           keyboardType: TextInputType.number,
         );
-        final cameraInputfield = OrangeTextFormField(
+        final cameraInputfield = BrownTextFormField(
           controller: cameraController,
           labelText: 'Camera',
           validator: model.validateCamera,
           keyboardType: TextInputType.text,
         );
-        final priceInputfield = OrangeTextFormField(
+        final priceInputfield = BrownTextFormField(
           controller: priceController,
           labelText: 'Price',
           validator: model.validatePrice,
           keyboardType: TextInputType.number,
         );
-        final stockInputfield = OrangeTextFormField(
+        final stockInputfield = BrownTextFormField(
           controller: stockController,
           labelText: 'Stock',
           validator: model.validateStock,
           keyboardType: TextInputType.number,
         );
-        final sarInputfield = OrangeTextFormField(
+        final sarInputfield = BrownTextFormField(
           controller: sarContrller,
           labelText: 'Sar',
           validator: model.validateSar,
@@ -136,7 +136,7 @@ class AddPhonePageView extends StatelessWidget {
                     children: [
                       Text(
                         'Add Phone',
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 25),
                         softWrap: true,
                         overflow: TextOverflow.visible,
                       ),

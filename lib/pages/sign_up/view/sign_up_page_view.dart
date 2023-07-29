@@ -40,33 +40,33 @@ class SignUpPageView extends StatelessWidget {
         final TextEditingController postalCodeController =
             TextEditingController();
 
-        final OrangeTextFormField firstNameInputField = OrangeTextFormField(
+        final BrownTextFormField firstNameInputField = BrownTextFormField(
           labelText: 'First Name',
           controller: firstNameController,
           keyboardType: TextInputType.name,
           validator: model.validateFirstName,
         );
-        final OrangeTextFormField lastNameInputField = OrangeTextFormField(
+        final BrownTextFormField lastNameInputField = BrownTextFormField(
           labelText: 'Last Name',
           controller: lastNameController,
           keyboardType: TextInputType.name,
           validator: model.validateLastName,
         );
-        final OrangeTextFormField emailInputField = OrangeTextFormField(
+        final BrownTextFormField emailInputField = BrownTextFormField(
           labelText: 'Email',
           controller: emailController,
           keyboardType: TextInputType.emailAddress,
           validator: model.validateEmail,
         );
-        final OrangeTextFormField passwordInputField = OrangeTextFormField(
+        final BrownTextFormField passwordInputField = BrownTextFormField(
           labelText: 'Password',
           controller: passwordController,
           keyboardType: TextInputType.visiblePassword,
           validator: model.validatePassword,
           isPasswordField: true,
         );
-        final OrangeTextFormField confirmPasswordInputField =
-            OrangeTextFormField(
+        final BrownTextFormField confirmPasswordInputField =
+            BrownTextFormField(
           labelText: 'Confirmation Password',
           controller: confirmPasswordController,
           keyboardType: TextInputType.visiblePassword,
@@ -81,33 +81,33 @@ class SignUpPageView extends StatelessWidget {
           },
           isPasswordField: true,
         );
-        final OrangeTextFormField phoneNumberInputField = OrangeTextFormField(
+        final BrownTextFormField phoneNumberInputField = BrownTextFormField(
           labelText: 'Phone Number',
           controller: phoneNumberController,
           keyboardType: TextInputType.phone,
           validator: model.validatePhoneNumber,
         );
-        final OrangeTextFormField streetAddressInputField =
-            OrangeTextFormField(
+        final BrownTextFormField streetAddressInputField =
+            BrownTextFormField(
           labelText: 'Address',
           controller: streetAddressController,
           keyboardType: TextInputType.text,
           validator: model.validateStreetAddress,
         );
-        final OrangeTextFormField cityInputField = OrangeTextFormField(
+        final BrownTextFormField cityInputField = BrownTextFormField(
           labelText: 'City',
           controller: cityController,
           keyboardType: TextInputType.text,
           validator: model.validateCity,
         );
-        final OrangeTextFormField postalCodeInputField = OrangeTextFormField(
+        final BrownTextFormField postalCodeInputField = BrownTextFormField(
           labelText: 'Postal Code',
           controller: postalCodeController,
           keyboardType: TextInputType.number,
           validator: model.validatePostalCode,
         );
 
-        final List<OrangeTextFormField> signUpFormFields = [
+        final List<BrownTextFormField> signUpFormFields = [
           firstNameInputField,
           lastNameInputField,
           emailInputField,
@@ -155,7 +155,7 @@ class SignUpPageView extends StatelessWidget {
                               text: 'Sign In',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1!
+                                  .bodyLarge!
                                   .copyWith(
                                     color: Theme.of(context).primaryColor,
                                   ),
@@ -216,7 +216,7 @@ class SignUpPageView extends StatelessWidget {
                         ...signUpFormFields,
                       Text(
                         'By signing up, you agree to our Terms, Data and Cookies Policy.',
-                        style: Theme.of(context).textTheme.subtitle2,
+                        style: Theme.of(context).textTheme.titleSmall,
                         softWrap: true,
                         overflow: TextOverflow.visible,
                       ),

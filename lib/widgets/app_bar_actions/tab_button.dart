@@ -28,20 +28,20 @@ class TabButton extends StatelessWidget {
           style: TextStyle(
             color: context.watch<PageKeyProvider>().key == route
                 ? Colors.white
-                : Colors.orange,
+                : Colors.brown,
           ),
         ),
         icon: Icon(
           iconData,
           color: context.watch<PageKeyProvider>().key == route
               ? Colors.white
-              : Colors.orange,
+              : Colors.brown,
         ),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(
             context.watch<PageKeyProvider>().key == route
-                ? Colors.orange
-                : Colors.white,
+                ? Color(0xffcbc9b7)
+                : Color(0xffcbc9b7),
           ),
         ),
       ),

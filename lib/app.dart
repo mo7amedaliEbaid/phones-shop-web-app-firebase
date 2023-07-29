@@ -53,7 +53,7 @@ class MyAppState extends State<MyApp> {
                       Provider.of<PageKeyProvider>(context, listen: false).key =
                           '/',
                   child: Text("Phones Shop",style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: Colors.blue,
+                    color: Colors.brown,
                     fontWeight: FontWeight.bold
                   ),)
                 ),

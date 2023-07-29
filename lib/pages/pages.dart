@@ -1,5 +1,7 @@
+
+import 'package:ecommerce_firebase/pages/cart/cart.dart';
+
 import 'add_phone/view/add_phone_page_view.dart';
-import 'cart/cart_page_view.dart';
 import 'contact_us/contact_us_page_view.dart';
 import 'home/home_page_view.dart';
 import 'orders/orders_page_view.dart';
@@ -14,6 +16,6 @@ final pageRoutes = {
   '/signin': const SignInPageView(),
   '/contactus': const ContactUsPageView(),
   '/addphone': const AddPhonePageView(),
-  '/cart': const CartPageView(),
+  '/cart': const CartScreen(),
   '/orders': const OrdersPageView(),
 };

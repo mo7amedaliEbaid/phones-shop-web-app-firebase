@@ -1,9 +1,11 @@
+import 'package:ecommerce_firebase/pages/home/desktop_home_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../providers/page_key_provider.dart';
+import 'mobile_home_view.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -16,38 +18,18 @@ class HomePageView extends StatelessWidget {
         SizingInformation sizingInformation,
       ) {
         return AnimatedContainer(
-          constraints: sizingInformation.isDesktop
-              ? const BoxConstraints(maxWidth: 1200)
-              : BoxConstraints(
-                  maxWidth: sizingInformation.screenSize.width,
-                ),
-          duration: const Duration(milliseconds: 60),
-          padding: sizingInformation.isDesktop
-              ? const EdgeInsets.symmetric(horizontal: 90)
-              : const EdgeInsets.symmetric(horizontal: 30),
-          child: Center(
-            child: RichText(
-              text: TextSpan(
-                text: 'Don\'t have a phone?\n',
-                style: Theme.of(context).textTheme.displayMedium?.copyWith(color: Colors.blue),
-                children:[
-                  TextSpan(
-                    text: 'Start shopping',
-                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                          color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Provider.of<PageKeyProvider>(context, listen: false)
-                            .key = '/phones';
-                      },
+            constraints: sizingInformation.isDesktop
+                ? const BoxConstraints(maxWidth: 1200)
+                : BoxConstraints(
+                    maxWidth: sizingInformation.screenSize.width,
                   ),
-                ],
-              ),
-            ),
-          ),
-        );
+            duration: const Duration(milliseconds: 60),
+            padding: sizingInformation.isDesktop
+                ? const EdgeInsets.symmetric(horizontal: 90)
+                : const EdgeInsets.symmetric(horizontal: 0),
+            child: sizingInformation.isDesktop
+                ? DesktopHomeView()
+                : MobileHomeView());
       },
     );
   }

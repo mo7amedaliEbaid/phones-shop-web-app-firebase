@@ -1,6 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_firebase/configs/configs.dart';
+
+import 'package:ecommerce_firebase/services/firestore_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../configs/app.dart';
+import '../../../../configs/app_dimensions.dart';
 import '../../../../services/authentication_service.dart';
 import '../../../../widgets/busy_button.dart';
 import '../../../../locator.dart';
@@ -22,12 +28,15 @@ class PhoneSpecificationsCard extends StatefulWidget {
 
 class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
   bool _isHovered = false;
+
   @override
   Widget build(BuildContext context) {
+    App.init(context);
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: Card(
+
         elevation: _isHovered ? 12 : 0,
         shadowColor: _isHovered ? Colors.orange : Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -38,14 +47,14 @@ class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 21, horizontal: 42),
+          padding: EdgeInsets.symmetric(horizontal: AppDimensions.space(1.5),vertical: AppDimensions.space(1.5)),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: Space.v!,
                 child: Center(
                   child: CachedNetworkImage(
                     imageUrl: widget.phone.imageUrl,
@@ -132,15 +141,21 @@ class BuyPhoneBusyButton extends StatelessWidget {
     return Center(
       child: BusyButton(
         title: 'Buy',
-        onPressed: () {
+        onPressed: ()async {
+
           if (phone.stock > 0) {
             if (locator<AuthenticationService>().currentUser != null) {
+              await FirestoreService().addToCart(
+                uid: FirebaseAuth.instance.currentUser!.uid,
+                productpic: phone.imageUrl,
+                productPrice: phone.price.toString(),
+                productTitle: phone.model,
+              );
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: Text('${phone.model} added to cart'),
-                    content: const Text('This feature is coming soon'),
                     actions: [
                       TextButton(
                         child: const Text('OK'),
@@ -158,7 +173,6 @@ class BuyPhoneBusyButton extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('You need to be logged in'),
-                    content: const Text('This feature is coming soon'),
                     actions: [
                       TextButton(
                         child: const Text('OK'),
@@ -171,18 +185,18 @@ class BuyPhoneBusyButton extends StatelessWidget {
                 },
               );
             }
-          } else {
+          } else  {
+
             showDialog(
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: Text('${phone.model} is out of stock'),
-                  content: const Text('This feature is coming soon'),
                   actions: [
                     TextButton(
                       child: const Text('OK'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
+                      onPressed: (){
+                         Navigator.of(context).pop();
                       },
                     ),
                   ],

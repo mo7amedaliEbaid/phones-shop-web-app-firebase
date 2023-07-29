@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_firebase/models/cart/cart_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:uuid/uuid.dart';
 
 import '../locator.dart';
 import '../models/phone/phone_model.dart';
@@ -6,6 +9,8 @@ import '../models/user/user_model.dart';
 import 'authentication_service.dart';
 
 class FirestoreService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   /// Firestore instance
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -40,6 +45,11 @@ class FirestoreService {
   Stream<QuerySnapshot<Object?>> get orderStream =>
       ordersCollection.snapshots();
 
+  //Create Cart
+  Future<void> createCart(CartModel cartmodel) async {
+    return await cartCollection.doc().set(cartmodel.toDocument());
+  }
+
   // Create Phone
   Future<void> createPhone(PhoneModel phoneModel) async {
     return await phoneCollection.doc().set(phoneModel.toDocument());
@@ -70,31 +80,6 @@ class FirestoreService {
         .map((snapshot) => UserModel.fromJson(snapshot.data()!));
   }
 
-  // // Read Users
-  // Stream<List<UserModel>> get readAllUsers {
-  //   return userCollection.snapshots().map(
-  //     (snapshot) {
-  //       return snapshot.docs.map(
-  //         (doc) {
-  //           return UserModel(
-  //             email: doc.get('email') as String,
-  //             firstName: doc.get('firstName') as String,
-  //             lastName: doc.get('lastName') as String,
-  //             phoneNumber: doc.get('phoneNumber') as String,
-  //             streetAddress: doc.get('streetAddress') as String,
-  //             city: doc.get('city') as String,
-  //             postalCode: doc.get('postalCode') as int,
-  //           );
-  //         },
-  //       ).toList();
-  //     },
-  //   );
-  // }
-
-  // // Read User with specified uid
-  // Stream<DocumentSnapshot> readUser({String? uid}) {
-  //   return userCollection.doc(uid).snapshots();
-  // }
 
   // Read Phone Catalog
   Stream<List<PhoneModel>> get readPhones {
@@ -107,5 +92,40 @@ class FirestoreService {
         ).toList();
       },
     );
+  }
+
+  // Read Cart
+  Stream<List<CartModel>> get readCart {
+    return cartCollection.snapshots().map(
+      (snapshot) {
+        return snapshot.docs.map(
+          (doc) {
+            return CartModel.fromDocument(doc);
+          },
+        ).toList();
+      },
+    );
+  }
+
+  String cartId = Uuid().v1();
+  Future<void> addToCart({
+    required String uid,
+    required String productpic,
+    required String productPrice,
+    required String productTitle,
+  }) async {
+    await _firestore
+        .collection('users')
+        .doc(uid)
+        .collection("cart")
+        .doc(cartId)
+        .set({
+      "cartId": cartId,
+      "uid": uid,
+      "imageurl": productpic,
+      "price": productPrice,
+      "title":productTitle,
+      "datePublished": DateTime.now(),
+    });
   }
 }

@@ -1,9 +1,12 @@
+import 'package:ecommerce_firebase/configs/configs.dart';
 import 'package:ecommerce_firebase/pages/phones/view/widgets/phone_specifications_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../configs/app.dart';
+import '../../../configs/ui.dart';
 import '../../../locator.dart';
 import '../../../models/phone/phone_model.dart';
 import '../../../services/firestore_service.dart';
@@ -14,6 +17,8 @@ class PhonesPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    App.init(context);
+   // Size size=UI.mediaQuery().size;
     return StreamBuilder<List<PhoneModel>>(
         stream: locator<FirestoreService>().readPhones,
         builder: (
@@ -45,7 +50,7 @@ class PhonesPageView extends StatelessWidget {
                     Center(
                       child: Text(
                         'No Phones',
-                        style: Theme.of(context).textTheme.headline6,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                   ];
@@ -83,7 +88,7 @@ class PhonesPageView extends StatelessWidget {
                         duration: const Duration(milliseconds: 60),
                         padding: sizingInformation.isDesktop
                             ? const EdgeInsets.symmetric(horizontal: 90)
-                            : const EdgeInsets.symmetric(horizontal: 30),
+                            : Space.h1,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -91,7 +96,7 @@ class PhonesPageView extends StatelessWidget {
                           children: [
                             Text(
                               'Browse Phones',
-                              style: Theme.of(context).textTheme.headline2,
+                              style: Theme.of(context).textTheme.headlineMedium,
                               softWrap: true,
                               overflow: TextOverflow.visible,
                             ),
@@ -149,8 +154,8 @@ class PhonesPageView extends StatelessWidget {
                           ].map(
                             (item) {
                               return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 9),
+                                padding:Space.v!,
+                                    //const EdgeInsets.symmetric(vertical: 9),
                                 child: item,
                               );
                             },

@@ -14,6 +14,7 @@ class MobileDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     User? user = locator<AuthenticationService>().currentUser;
     return Drawer(
+      //backgroundColor: ,
       child: ListView(
         children: [
           user == null
@@ -32,6 +33,14 @@ class MobileDrawer extends StatelessWidget {
                             '${userModel.firstName} ${userModel.lastName}',
                           ),
                           accountEmail: Text(userModel.email),
+                          decoration: BoxDecoration(
+                            color: Colors.brown
+                          ),
+                          currentAccountPicture: CircleAvatar(
+                            radius: 50,
+                            foregroundImage: AssetImage("assets/images/user.jpeg"),
+                            backgroundColor: Colors.brown,
+                          ),
                         );
                       } else {
                         return const DrawerHeader(
