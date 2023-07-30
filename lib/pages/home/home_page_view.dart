@@ -19,7 +19,7 @@ class HomePageView extends StatelessWidget {
       ) {
         return AnimatedContainer(
             constraints: sizingInformation.isDesktop
-                ? const BoxConstraints(maxWidth: 1200)
+                ?  BoxConstraints(maxWidth: sizingInformation.screenSize.width*.925)
                 : BoxConstraints(
                     maxWidth: sizingInformation.screenSize.width,
                   ),

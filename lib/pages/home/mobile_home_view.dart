@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../../configs/app.dart';
 import '../../configs/app_dimensions.dart';
 import '../../providers/page_key_provider.dart';
-import 'widgets/image_list_view.dart';
+import 'widgets/mobile_image_list_view.dart';
 
 class MobileHomeView extends StatelessWidget {
   const MobileHomeView({super.key});
