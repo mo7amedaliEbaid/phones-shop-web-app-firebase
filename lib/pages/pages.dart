@@ -18,6 +18,6 @@ final pageRoutes = {
   '/addphone': const AddPhonePageView(),
   '/cart': const CartScreen(),
  // '/orders': const OrdersPageView(),
-  '/orders' :Application(),
+  '/orders' :OrdersPageView(),
  // '/message': MessageView(),
 };

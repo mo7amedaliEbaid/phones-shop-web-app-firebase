@@ -157,6 +157,16 @@ class ContactUsPageView extends StatelessWidget {
                           );
                         },
                       ),
+                      Text(
+                        'OR Contact us via:',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(fontSize: 20),
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -183,20 +193,11 @@ class ContactUsPageView extends StatelessWidget {
                                     style:Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
                                   ),
 
-                                  /*  Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: AutoSizeText(
-                          "user@atyabalmarshoud.kw",
-                          style: smallStyle,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),*/
                                 ],
                               ),
                             ),
                           ),
-                          SizedBox(width: size.width * 0.05),
+                          Space.x!,
                           InkWell(
                             onTap: () {
                               model.launched = model.launchInWebViewOrVC(
@@ -220,11 +221,11 @@ class ContactUsPageView extends StatelessWidget {
                                     style:Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
                                   ),
 
-
                                 ],
                               ),
                             ),
                           ),
+                          Space.x!,
                           InkWell(
                             onTap: () {
                               model.launched = model.launchInWebViewOrVC(
@@ -248,15 +249,6 @@ class ContactUsPageView extends StatelessWidget {
                                     style:Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
                                   ),
 
-                                  /*  Padding(
-                        padding:
-                        const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: AutoSizeText(
-                          "user@atyabalmarshoud.kw",
-                          style: smallStyle,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),*/
                                 ],
                               ),
                             ),

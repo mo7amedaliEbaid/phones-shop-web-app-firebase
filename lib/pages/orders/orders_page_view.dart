@@ -1,30 +1,188 @@
+import 'dart:developer';
+
+import 'package:ecommerce_firebase/models/contact_us/contact_us_model.dart';
+import 'package:ecommerce_firebase/pages/orders/messagecard.dart';
 import 'package:ecommerce_firebase/services/fcm_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
+import 'package:responsive_builder/responsive_builder.dart';
+import 'package:stacked/stacked.dart';
+import '../../configs/app.dart';
+import '../../locator.dart';
+import '../../services/firestore_service.dart';
 import '../../widgets/message.dart';
 import '../../widgets/message_list.dart';
 import '../../widgets/metacard.dart';
 import '../../widgets/permissions.dart';
 import '../../widgets/tokenmonitor.dart';
-/*
 import 'package:flutter/material.dart';
+import 'package:ecommerce_firebase/configs/configs.dart';
+import '../phones/view/widgets/phone_specifications_card.dart';
+import 'orders_viewmodel.dart';
 
 class OrdersPageView extends StatelessWidget {
   const OrdersPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Orders Page',
-        style: Theme.of(context).textTheme.headline4,
-      ),
-    );
+    App.init(context);
+    return StreamBuilder<List<ContactUsModel>>(
+        stream: locator<FirestoreService>().readmessages,
+        builder: (
+            BuildContext context,
+            AsyncSnapshot<List<ContactUsModel>> snapshot,
+            ) {
+          return ViewModelBuilder<OrdersViewModel>.reactive(
+            viewModelBuilder: () => OrdersViewModel(),
+            builder: (
+                BuildContext context,
+                OrdersViewModel model,
+                Widget? child,
+                ) {
+              List<Widget> messagecards = [];
+              int middle = messagecards.length ~/ 2;
+              if (snapshot.hasData) {
+                if (snapshot.data != null) {
+                  model.setmessages(snapshot.data!);
+                  model.setmessages(snapshot.data!);
+                  messagecards = List.generate(
+                    model.contactusmodel.length,
+                        (index) => MessageCard(
+                      message: model.contactusmodel[index],
+                    ),
+                  );
+                  middle = messagecards.length ~/ 2;
+                } else {
+                  messagecards = [
+                    Center(
+                      child: Text(
+                        'No messages',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                  ];
+                }
+              } else if (snapshot.hasError) {
+                messagecards = [
+                  const Center(
+                    child: Icon(
+                      Icons.error_outline_rounded,
+                      color: Colors.red,
+                    ),
+                  )
+                ];
+              } else {
+                messagecards = [
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ];
+              }
+              return ResponsiveBuilder(
+                builder: (
+                    BuildContext context,
+                    SizingInformation sizingInformation,
+                    ) {
+                  log("llllllllllllllll==============${messagecards.length.toString()}");
+                  return SingleChildScrollView(
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: AnimatedContainer(
+                        constraints: sizingInformation.isDesktop
+                            ? const BoxConstraints(maxWidth: 1200)
+                            : BoxConstraints(
+                          maxWidth: sizingInformation.screenSize.width,
+                        ),
+                        duration: const Duration(milliseconds: 60),
+                        padding: sizingInformation.isDesktop
+                            ? const EdgeInsets.symmetric(horizontal: 90)
+                            : Space.h1,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Browse Messages',
+                              style: Theme.of(context).textTheme.headlineMedium,
+                              softWrap: true,
+                              overflow: TextOverflow.visible,
+                            ),
+                            if (!(sizingInformation.isMobile))
+
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children:
+                                      messagecards.sublist(0, middle).map(
+                                            (item) {
+                                          return Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              vertical: 9,
+                                            ),
+                                            child: item,
+                                          );
+                                        },
+                                      ).toList(),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 18),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children:
+                                      messagecards.sublist(middle).map(
+                                            (item) {
+                                          return Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              vertical: 9,
+                                            ),
+                                            child: item,
+                                          );
+                                        },
+                                      ).toList(),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            else
+                              ...messagecards,
+                          ].map(
+                                (item) {
+                              return Padding(
+                                padding:Space.v!,
+                                //const EdgeInsets.symmetric(vertical: 9),
+                                child: item,
+                              );
+                            },
+                          ).toList(),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        });
   }
 }
-*/
+/*
 class Application extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _Application();
@@ -204,4 +362,4 @@ class _Application extends State<Application> {
       ),
     );
   }
-}
+}*/
