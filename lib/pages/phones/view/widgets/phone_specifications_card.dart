@@ -1,12 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce_firebase/configs/configs.dart';
 
 import 'package:ecommerce_firebase/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../configs/app.dart';
-import '../../../../configs/app_dimensions.dart';
+import 'package:ecommerce_firebase/configs/configs.dart';
 import '../../../../services/authentication_service.dart';
 import '../../../../widgets/busy_button.dart';
 import '../../../../locator.dart';
@@ -31,7 +28,6 @@ class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
 
   @override
   Widget build(BuildContext context) {
-    App.init(context);
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),

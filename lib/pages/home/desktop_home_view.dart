@@ -3,20 +3,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../configs/app.dart';
-import '../../configs/app_dimensions.dart';
-import '../../configs/space.dart';
-import '../../configs/ui.dart';
+import '../../configs/configs.dart';
 import '../../providers/page_key_provider.dart';
-import 'widgets/mobile_image_list_view.dart';
 class DesktopHomeView extends StatelessWidget {
   const DesktopHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    App.init(context);
-  //  Size size=UI.mediaQuery().size;
-   // print(size.toString());
+
     return Scaffold(
       body: Row(
         children: [

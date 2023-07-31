@@ -1,8 +1,8 @@
-import 'package:ecommerce_firebase/configs/app.dart';
 import 'package:ecommerce_firebase/configs/app_dimensions.dart';
-import 'package:ecommerce_firebase/configs/configs.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../../../configs/space.dart';
 
 class CartlistCard extends StatefulWidget {
   final snap;
@@ -22,7 +22,6 @@ class _CartlistCardState extends State<CartlistCard> {
 
   @override
   Widget build(BuildContext context) {
-    App.init(context);
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(

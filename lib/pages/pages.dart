@@ -2,7 +2,7 @@
 import 'package:ecommerce_firebase/pages/cart/cart.dart';
 
 import 'add_phone/view/add_phone_page_view.dart';
-import 'contact_us/contact_us_page_view.dart';
+import 'contact_us/view/contactus_page_view.dart';
 import 'home/home_page_view.dart';
 import 'orders/orders_page_view.dart';
 import 'phones/view/phones_page_view.dart';
@@ -14,8 +14,10 @@ final pageRoutes = {
   '/phones': const PhonesPageView(),
   '/signup': const SignUpPageView(),
   '/signin': const SignInPageView(),
-  '/contactus': const ContactUsPageView(),
+  '/contactus':  ContactUsPageView(),
   '/addphone': const AddPhonePageView(),
   '/cart': const CartScreen(),
-  '/orders': const OrdersPageView(),
+ // '/orders': const OrdersPageView(),
+  '/orders' :Application(),
+ // '/message': MessageView(),
 };

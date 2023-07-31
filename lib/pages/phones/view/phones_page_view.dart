@@ -1,12 +1,10 @@
-import 'package:ecommerce_firebase/configs/configs.dart';
 import 'package:ecommerce_firebase/pages/phones/view/widgets/phone_specifications_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../configs/app.dart';
-import '../../../configs/ui.dart';
+import '../../../configs/space.dart';
 import '../../../locator.dart';
 import '../../../models/phone/phone_model.dart';
 import '../../../services/firestore_service.dart';
@@ -17,8 +15,6 @@ class PhonesPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    App.init(context);
-   // Size size=UI.mediaQuery().size;
     return StreamBuilder<List<PhoneModel>>(
         stream: locator<FirestoreService>().readPhones,
         builder: (

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_firebase/models/cart/cart_model.dart';
+import 'package:ecommerce_firebase/models/contact_us/contact_us_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uuid/uuid.dart';
 
@@ -24,6 +25,9 @@ class FirestoreService {
   CollectionReference<Map<String, dynamic>> get phoneCollection =>
       _firestore.collection('phones');
 
+  /// Message Collection Reference
+  CollectionReference<Map<String, dynamic>> get messagescollection =>
+      _firestore.collection('messages');
   /// Cart Collection Reference
   CollectionReference<Map<String, dynamic>> get cartCollection =>
       _firestore.collection('cart');
@@ -42,6 +46,10 @@ class FirestoreService {
   Stream<QuerySnapshot<Object?>> get cartStream => cartCollection.snapshots();
 
   /// Order Snapshot Stream
+  Stream<QuerySnapshot<Object?>> get messagesstream =>
+      messagescollection.snapshots();
+
+  /// Order Snapshot Stream
   Stream<QuerySnapshot<Object?>> get orderStream =>
       ordersCollection.snapshots();
 
@@ -53,6 +61,11 @@ class FirestoreService {
   // Create Phone
   Future<void> createPhone(PhoneModel phoneModel) async {
     return await phoneCollection.doc().set(phoneModel.toDocument());
+  }
+
+// Send Message
+  Future<void> sendmessage(ContactUsModel contactUsModel) async {
+    return await messagescollection.doc().set(contactUsModel.toDocument());
   }
 
   // Create User
@@ -88,6 +101,18 @@ class FirestoreService {
         return snapshot.docs.map(
           (doc) {
             return PhoneModel.fromDocument(doc);
+          },
+        ).toList();
+      },
+    );
+  }
+  // Read Messages
+  Stream<List<ContactUsModel>> get readmessages {
+    return phoneCollection.snapshots().map(
+          (snapshot) {
+        return snapshot.docs.map(
+              (doc) {
+            return ContactUsModel.fromDocument(doc);
           },
         ).toList();
       },

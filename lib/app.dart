@@ -1,3 +1,5 @@
+import 'package:ecommerce_firebase/theme.dart';
+import 'package:ecommerce_firebase/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -7,7 +9,6 @@ import 'pages/pages.dart';
 import 'providers/page_key_provider.dart';
 import 'providers/sizing_information_provider.dart';
 import 'services/scaffold_service.dart';
-import 'theme.dart';
 import 'widgets/app_bar_actions/desktop_navigation/desktop_navigation_app_bar_actions.dart';
 import 'widgets/app_bar_actions/mobile_navigation/mobile_navigation_app_bar_actions.dart';
 import 'widgets/drawer/mobile_drawer.dart';
@@ -31,6 +32,9 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: theme,
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/message': (context) => MessageView(),
+      },
       home: ResponsiveBuilder(
         builder: (BuildContext context, SizingInformation sizingInformation) {
           Provider.of<SizingInformationProvider>(context, listen: false)

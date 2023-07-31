@@ -1,12 +1,10 @@
-import 'package:ecommerce_firebase/configs/space.dart';
-import 'package:ecommerce_firebase/configs/ui.dart';
+import 'package:ecommerce_firebase/configs/configs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../configs/app.dart';
-import '../../configs/app_dimensions.dart';
 import '../../providers/page_key_provider.dart';
 import 'widgets/mobile_image_list_view.dart';
 
@@ -15,8 +13,8 @@ class MobileHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.sizeOf(context);
     App.init(context);
-    Size size=UI.mediaQuery().size;
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
