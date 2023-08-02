@@ -116,7 +116,7 @@ class FirestoreService {
   }
   // Read Messages
   Stream<List<ContactUsModel>> get readmessages {
-    return messagescollection/*.where(_auth.currentUser!.uid)*/.snapshots().map(
+    return messagescollection.snapshots().map(
           (snapshot) {
         return snapshot.docs.map(
               (doc) {
