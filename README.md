@@ -72,17 +72,17 @@ Fore more screen shots [Here](https://github.com/mo7amedaliEbaid/phones-shop/blo
 <br />
 <h3>Website</h3>
 <p float="left">
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/phonesweb.png" width="270" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/homeweb.png" width="270" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/signupweb.png" width="270" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/contactweb.png" width="270" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/phonesweb.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/homeweb.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/signupweb.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/contactweb.png" width="370" />
 </p>
 
 <br />
 <h3>Firebase</h3>
 <p float="left">
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire.png" width="270" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire1.png" width="270" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire2.png" width="270" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire3.png" width="270" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire1.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire2.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/fire3.png" width="370" />
 </p>
