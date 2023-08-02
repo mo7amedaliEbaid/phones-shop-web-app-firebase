@@ -1,3 +1,4 @@
+/*
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'cart_model.dart';
@@ -20,3 +21,4 @@ Map<String, dynamic> _$$_CartModelToJson(_$_CartModel instance) =>
       'userId': instance.userId,
       'productIds': instance.productIds,
     };
+*/

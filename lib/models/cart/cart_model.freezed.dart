@@ -1,3 +1,4 @@
+/*
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -201,3 +202,4 @@ abstract class _CartModel extends CartModel {
   _$CartModelCopyWith<_CartModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
+*/

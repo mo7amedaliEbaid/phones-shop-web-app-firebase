@@ -19,13 +19,13 @@ class HomePageView extends StatelessWidget {
       ) {
         return AnimatedContainer(
             constraints: sizingInformation.isDesktop
-                ?  BoxConstraints(maxWidth: sizingInformation.screenSize.width*.925)
+                ?  BoxConstraints(maxWidth: sizingInformation.screenSize.width)
                 : BoxConstraints(
                     maxWidth: sizingInformation.screenSize.width,
                   ),
             duration: const Duration(milliseconds: 60),
             padding: sizingInformation.isDesktop
-                ? const EdgeInsets.symmetric(horizontal: 90)
+                ? const EdgeInsets.symmetric(horizontal: 0)
                 : const EdgeInsets.symmetric(horizontal: 0),
             child: sizingInformation.isDesktop
                 ? DesktopHomeView()

@@ -54,9 +54,8 @@ class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
                 child: Center(
                   child: CachedNetworkImage(
                     imageUrl: widget.phone.imageUrl,
-                    errorWidget: (context, url, error) => Icon(
-                      Icons.error,
-                      color: Colors.red.shade700,
+                    errorWidget: (context, url, error) => Image.asset(
+                     "assets/images/mobile1.jpeg"
                     ),
                     progressIndicatorBuilder: (context, url, downloadProgress) {
                       return CircularProgressIndicator(

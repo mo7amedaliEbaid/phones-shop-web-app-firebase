@@ -126,11 +126,11 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
       ),
       // log in icon text button
       TabButton(
-        route: '/orders',
-        title: 'Orders',
-        iconData: Icons.history_rounded,
+        route: '/messages',
+        title: 'Messages',
+        iconData: Icons.message_outlined,
         onPressed: () {
-          Provider.of<PageKeyProvider>(context, listen: false).key = '/orders';
+          Provider.of<PageKeyProvider>(context, listen: false).key = '/messages';
           if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
             Navigator.pop(context);
           }

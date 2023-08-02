@@ -28,9 +28,9 @@ class FirestoreService {
   /// Message Collection Reference
   CollectionReference<Map<String, dynamic>> get messagescollection =>
       _firestore.collection('messages');
-  /// Cart Collection Reference
+ /* /// Cart Collection Reference
   CollectionReference<Map<String, dynamic>> get cartCollection =>
-      _firestore.collection('cart');
+      _firestore.collection('cart');*/
 
   /// Order Collection Reference
   CollectionReference<Map<String, dynamic>> get ordersCollection =>
@@ -42,8 +42,8 @@ class FirestoreService {
   /// Phone Snapshot Stream
   Stream<QuerySnapshot<Object?>> get phoneStream => phoneCollection.snapshots();
 
-  /// Cart Snapshot Stream
-  Stream<QuerySnapshot<Object?>> get cartStream => cartCollection.snapshots();
+/*  /// Cart Snapshot Stream
+  Stream<QuerySnapshot<Object?>> get cartStream => cartCollection.snapshots();*/
 
   /// Order Snapshot Stream
   Stream<QuerySnapshot<Object?>> get messagesstream =>
@@ -54,9 +54,9 @@ class FirestoreService {
       ordersCollection.snapshots();
 
   //Create Cart
-  Future<void> createCart(CartModel cartmodel) async {
+/*  Future<void> createCart(CartModel cartmodel) async {
     return await cartCollection.doc().set(cartmodel.toDocument());
-  }
+  }*/
 
   // Create Phone
   Future<void> createPhone(PhoneModel phoneModel) async {
@@ -68,22 +68,30 @@ class FirestoreService {
     return await messagescollection.doc().set(contactUsModel.toDocument());
   }
 
+
   // Create User
   Future<void> createUser(UserModel userModel) async {
     return userCollection
         .doc(locator<AuthenticationService>().currentUser!.uid)
         .set(userModel.toDocument());
   }
+/*
+  Future<void> createUsercart(UserModel userModel) async {
+    return userCollection
+        .doc(locator<AuthenticationService>().currentUser!.uid)
+        .set(userModel.toDocument());
+  }
+*/
 
   // Read User
-  Future<UserModel?> readUser(String documentId) async {
+  /*Future<UserModel?> readUser(String documentId) async {
     var snapshot = await userCollection.doc(documentId).get();
     if (snapshot.exists) {
       return UserModel.fromDocument(snapshot);
     } else {
       return null;
     }
-  }
+  }*/
 
   //  Stream User Model
   Stream<UserModel?> streamUser(String? documentId) {
@@ -108,7 +116,7 @@ class FirestoreService {
   }
   // Read Messages
   Stream<List<ContactUsModel>> get readmessages {
-    return messagescollection.where(_auth.currentUser!.uid).snapshots().map(
+    return messagescollection/*.where(_auth.currentUser!.uid)*/.snapshots().map(
           (snapshot) {
         return snapshot.docs.map(
               (doc) {
@@ -120,7 +128,7 @@ class FirestoreService {
   }
 
   // Read Cart
-  Stream<List<CartModel>> get readCart {
+  /*Stream<List<CartModel>> get readCart {
     return cartCollection.snapshots().map(
       (snapshot) {
         return snapshot.docs.map(
@@ -130,17 +138,29 @@ class FirestoreService {
         ).toList();
       },
     );
-  }
+  }*/
+ /* // Read Cart
+  Stream<List<PhoneModel>> get readCartPhones {
+    return phoneCollection.snapshots().map(
+          (snapshot) {
+        return snapshot.docs.map(
+              (doc) {
+            return PhoneModel.fromDocument(doc);
+          },
+        ).toList();
+      },
+    );
+  }*/
 
   String cartId = Uuid().v1();
+
   Future<void> addToCart({
     required String uid,
     required String productpic,
     required String productPrice,
     required String productTitle,
   }) async {
-    await _firestore
-        .collection('users')
+    await userCollection
         .doc(uid)
         .collection("cart")
         .doc(cartId)

@@ -1,29 +1,18 @@
-import 'dart:developer';
 
 import 'package:ecommerce_firebase/models/contact_us/contact_us_model.dart';
-import 'package:ecommerce_firebase/pages/orders/messagecard.dart';
-import 'package:ecommerce_firebase/services/fcm_service.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:ecommerce_firebase/pages/messages/view/widgets/messagecard.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart'as http;
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
-import '../../configs/app.dart';
-import '../../locator.dart';
-import '../../services/firestore_service.dart';
-import '../../widgets/message.dart';
-import '../../widgets/message_list.dart';
-import '../../widgets/metacard.dart';
-import '../../widgets/permissions.dart';
-import '../../widgets/tokenmonitor.dart';
-import 'package:flutter/material.dart';
+import '../../../configs/app.dart';
+import '../../../locator.dart';
+import '../../../services/firestore_service.dart';
 import 'package:ecommerce_firebase/configs/configs.dart';
-import '../phones/view/widgets/phone_specifications_card.dart';
-import 'orders_viewmodel.dart';
+import '../view_model/messages_viewmodel.dart';
 
-class OrdersPageView extends StatelessWidget {
-  const OrdersPageView({Key? key}) : super(key: key);
+class MessagesPageView extends StatelessWidget {
+  const MessagesPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +23,11 @@ class OrdersPageView extends StatelessWidget {
             BuildContext context,
             AsyncSnapshot<List<ContactUsModel>> snapshot,
             ) {
-          return ViewModelBuilder<OrdersViewModel>.reactive(
-            viewModelBuilder: () => OrdersViewModel(),
+          return ViewModelBuilder<MessagesViewModel>.reactive(
+            viewModelBuilder: () => MessagesViewModel(),
             builder: (
                 BuildContext context,
-                OrdersViewModel model,
+                MessagesViewModel model,
                 Widget? child,
                 ) {
               List<Widget> messagecards = [];
@@ -85,7 +74,7 @@ class OrdersPageView extends StatelessWidget {
                     BuildContext context,
                     SizingInformation sizingInformation,
                     ) {
-                  log("llllllllllllllll==============${messagecards.length.toString()}");
+                 // log("llllllllllllllll==============${messagecards.length.toString()}");
                   return SingleChildScrollView(
                     child: Align(
                       alignment: Alignment.topCenter,
@@ -105,8 +94,8 @@ class OrdersPageView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Browse Messages',
-                              style: Theme.of(context).textTheme.headlineMedium,
+                              'Browse Recent Messages',
+                              style: Theme.of(context).textTheme.headlineSmall,
                               softWrap: true,
                               overflow: TextOverflow.visible,
                             ),

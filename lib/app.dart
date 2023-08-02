@@ -1,4 +1,4 @@
-import 'package:ecommerce_firebase/theme.dart';
+import 'package:ecommerce_firebase/configs/theme.dart';
 import 'package:ecommerce_firebase/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,9 +32,6 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: theme,
       debugShowCheckedModeBanner: false,
-      routes: {
-        '/message': (context) => MessageView(),
-      },
       home: ResponsiveBuilder(
         builder: (BuildContext context, SizingInformation sizingInformation) {
           Provider.of<SizingInformationProvider>(context, listen: false)

@@ -8,11 +8,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../providers/page_key_provider.dart';
 import '../../../../locator.dart';
-import '../../../../services/authentication_service.dart';
 import '../../../../widgets/text_input/validators.dart';
+import '../../../services/authentication_service.dart';
 
 class ContactPageViewModel extends BaseViewModel with Validators {
-  FirebaseAuth _auth=FirebaseAuth.instance;
+  User? user = locator<AuthenticationService>().currentUser;
   Future sendmessage({
     required BuildContext context,
     required String uid,
@@ -25,7 +25,8 @@ class ContactPageViewModel extends BaseViewModel with Validators {
     if (validateName(name) != null ||
         validateEmail(email) != null ||
         validateTopic(topic) != null ||
-        validateMessage(message) != null ) {
+        validateMessage(message) != null ||
+        user?.uid == null) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -43,7 +44,7 @@ class ContactPageViewModel extends BaseViewModel with Validators {
       );
     } else {
       setBusy(true);
-      ContactUsModel contactUsModel = ContactUsModel(uid:_auth.currentUser!.uid, name: name, email:email, topic:topic, message:message
+      ContactUsModel contactUsModel = ContactUsModel(uid:user!.uid, name: name, email:email, topic:topic, message:message
 
       );
       await locator<FirestoreService>().sendmessage(contactUsModel);

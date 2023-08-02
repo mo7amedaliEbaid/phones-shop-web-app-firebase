@@ -8,26 +8,26 @@ import '../../../configs/space.dart';
 import '../../../locator.dart';
 import '../../../models/phone/phone_model.dart';
 import '../../../services/firestore_service.dart';
-import '../view_model/phones_page_view_model.dart';
+import 'cart_model.dart';
 
-class PhonesPageView extends StatelessWidget {
-  const PhonesPageView({Key? key}) : super(key: key);
+class CartPageView extends StatelessWidget {
+  const CartPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<PhoneModel>>(
         stream: locator<FirestoreService>().readPhones,
         builder: (
-          BuildContext context,
-          AsyncSnapshot<List<PhoneModel>> snapshot,
-        ) {
-          return ViewModelBuilder<PhonesPageViewModel>.reactive(
-            viewModelBuilder: () => PhonesPageViewModel(),
-            builder: (
-              BuildContext context,
-              PhonesPageViewModel model,
-              Widget? child,
+            BuildContext context,
+            AsyncSnapshot<List<PhoneModel>> snapshot,
             ) {
+          return ViewModelBuilder<CartPageViewModel>.reactive(
+            viewModelBuilder: () => CartPageViewModel(),
+            builder: (
+                BuildContext context,
+                CartPageViewModel model,
+                Widget? child,
+                ) {
               List<Widget> phoneCards = [];
               int middle = phoneCards.length ~/ 2;
               if (snapshot.hasData) {
@@ -36,7 +36,7 @@ class PhonesPageView extends StatelessWidget {
                   model.setPhoneModels(snapshot.data!);
                   phoneCards = List.generate(
                     model.phoneModels.length,
-                    (index) => PhoneSpecificationsCard(
+                        (index) => PhoneSpecificationsCard(
                       phone: model.phoneModels[index],
                     ),
                   );
@@ -69,9 +69,9 @@ class PhonesPageView extends StatelessWidget {
               }
               return ResponsiveBuilder(
                 builder: (
-                  BuildContext context,
-                  SizingInformation sizingInformation,
-                ) {
+                    BuildContext context,
+                    SizingInformation sizingInformation,
+                    ) {
                   return SingleChildScrollView(
                     child: Align(
                       alignment: Alignment.topCenter,
@@ -79,8 +79,8 @@ class PhonesPageView extends StatelessWidget {
                         constraints: sizingInformation.isDesktop
                             ? const BoxConstraints(maxWidth: 1200)
                             : BoxConstraints(
-                                maxWidth: sizingInformation.screenSize.width,
-                              ),
+                          maxWidth: sizingInformation.screenSize.width,
+                        ),
                         duration: const Duration(milliseconds: 60),
                         padding: sizingInformation.isDesktop
                             ? const EdgeInsets.symmetric(horizontal: 90)
@@ -92,7 +92,7 @@ class PhonesPageView extends StatelessWidget {
                           children: [
                             Text(
                               'Browse Phones',
-                              style: Theme.of(context).textTheme.headlineSmall,
+                              style: Theme.of(context).textTheme.headlineMedium,
                               softWrap: true,
                               overflow: TextOverflow.visible,
                             ),
@@ -106,12 +106,12 @@ class PhonesPageView extends StatelessWidget {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children:
-                                          phoneCards.sublist(0, middle).map(
-                                        (item) {
+                                      phoneCards.sublist(0, middle).map(
+                                            (item) {
                                           return Padding(
                                             padding: const EdgeInsets.symmetric(
                                               vertical: 9,
@@ -127,12 +127,12 @@ class PhonesPageView extends StatelessWidget {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children:
-                                          phoneCards.sublist(middle).map(
-                                        (item) {
+                                      phoneCards.sublist(middle).map(
+                                            (item) {
                                           return Padding(
                                             padding: const EdgeInsets.symmetric(
                                               vertical: 9,
@@ -148,10 +148,10 @@ class PhonesPageView extends StatelessWidget {
                             else
                               ...phoneCards,
                           ].map(
-                            (item) {
+                                (item) {
                               return Padding(
                                 padding:Space.v!,
-                                    //const EdgeInsets.symmetric(vertical: 9),
+                                //const EdgeInsets.symmetric(vertical: 9),
                                 child: item,
                               );
                             },

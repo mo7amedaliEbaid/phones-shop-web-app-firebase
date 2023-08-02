@@ -1,3 +1,4 @@
+/*
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -25,3 +26,4 @@ abstract class CartModel implements _$CartModel {
 
   Map<String, dynamic> toDocument() => toJson()..remove('id');
 }
+*/

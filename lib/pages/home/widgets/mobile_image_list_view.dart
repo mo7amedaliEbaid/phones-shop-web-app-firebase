@@ -4,9 +4,9 @@ import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-
 class ImageListView extends StatefulWidget {
   final int starIndex;
+
   ImageListView({super.key, required this.starIndex});
 
   @override
@@ -15,13 +15,14 @@ class ImageListView extends StatefulWidget {
 
 class _ImageListViewState extends State<ImageListView> {
   final _scrollController = ScrollController();
-  List<String> assetspics=[
+  List<String> assetspics = [
     "assets/images/mobile9.jpg",
     "assets/images/mobile8.jpg",
-     "assets/images/mobile2.jpeg",
+    "assets/images/mobile2.jpeg",
     "assets/images/mobile9.jpg",
     "assets/images/mobile8.jpg",
   ];
+
   @override
   void initState() {
     super.initState();
@@ -42,23 +43,28 @@ class _ImageListViewState extends State<ImageListView> {
       _scrollController.animateTo(
           currentScrollPosition == scrollEndPosition ? 0 : scrollEndPosition,
           duration: const Duration(seconds: 10),
-          curve: Curves.linear);
+          curve: Curves.linear,
+
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return Transform.rotate(
       angle: 1.93 * pi,
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.60,
-        height: MediaQuery.of(context).size.height * 0.70,
+        width: size.width * 0.60,
+        height: size.height * 0.70,
         child: ListView.builder(
           controller: _scrollController,
           itemCount: 5,
+          // reverse: true,
+
           itemBuilder: (context, index) {
             return Image.asset(
-             assetspics[index],
+              assetspics[index],
               fit: BoxFit.contain,
               /*imageBuilder: (context, imageProvider) {
                 return Container(
