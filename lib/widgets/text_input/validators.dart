@@ -64,8 +64,8 @@ mixin Validators {
 
   String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) return 'Phone number is required';
-    if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
-      return 'Phone number must be 10 digits long';
+    if (!RegExp(r'^[0-9]{11}$').hasMatch(value)) {
+      return 'Phone number must be 11 digits long';
     }
     return null;
   }

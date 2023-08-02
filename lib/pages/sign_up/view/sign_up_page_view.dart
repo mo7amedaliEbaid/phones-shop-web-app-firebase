@@ -142,14 +142,14 @@ class SignUpPageView extends StatelessWidget {
                     children: [
                       Text(
                         'Sign Up',
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.displaySmall,
                         softWrap: true,
                         overflow: TextOverflow.visible,
                       ),
                       RichText(
                         text: TextSpan(
                           text: 'Already have an account? ',
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: Theme.of(context).textTheme.bodyLarge,
                           children: [
                             TextSpan(
                               text: 'Sign In',

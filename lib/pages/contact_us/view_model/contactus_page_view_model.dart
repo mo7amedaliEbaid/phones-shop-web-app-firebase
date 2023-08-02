@@ -61,7 +61,7 @@ class ContactPageViewModel extends BaseViewModel with Validators {
                 onPressed: () {
                   Navigator.of(context).pop();
                   Provider.of<PageKeyProvider>(context, listen: false).key =
-                  '/phones';
+                  '/messages';
                 },
               ),
             ],

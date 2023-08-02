@@ -104,7 +104,7 @@ class _CartScreenState extends State<CartScreen> {
                           }
                           return Container(
                             height: sizingInformation.isMobile
-                                ? sizingInformation.screenSize.height * .75
+                                ? sizingInformation.screenSize.height * .74
                                 : sizingInformation.isDesktop
                                     ? sizingInformation.screenSize.height * .78
                                     : sizingInformation.screenSize.height * .8,
