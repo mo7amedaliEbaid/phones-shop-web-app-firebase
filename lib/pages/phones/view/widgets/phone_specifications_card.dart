@@ -111,10 +111,7 @@ class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
                 fieldName: 'Stock',
                 fieldValue: '${widget.phone.stock}',
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: BuyPhoneBusyButton(phone: widget.phone),
-              ),
+
             ],
           ),
         ),
@@ -123,84 +120,3 @@ class _PhoneSpecificationsCardState extends State<PhoneSpecificationsCard> {
   }
 }
 
-class BuyPhoneBusyButton extends StatelessWidget {
-  const BuyPhoneBusyButton({
-    Key? key,
-    required this.phone,
-  }) : super(key: key);
-
-  final PhoneModel phone;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: BusyButton(
-        title: 'Buy',
-        onPressed: ()async {
-
-          if (phone.stock > 0) {
-            if (locator<AuthenticationService>().currentUser != null) {
-              await FirestoreService().addToCart(
-                uid: FirebaseAuth.instance.currentUser!.uid,
-                productpic: phone.imageUrl,
-                productPrice: phone.price.toString(),
-                productTitle: phone.model,
-              );
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: Text('${phone.model} added to cart'),
-                    actions: [
-                      TextButton(
-                        child: const Text('OK'),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ],
-                  );
-                },
-              );
-            } else {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: const Text('You need to be logged in'),
-                    actions: [
-                      TextButton(
-                        child: const Text('OK'),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ],
-                  );
-                },
-              );
-            }
-          } else  {
-
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text('${phone.model} is out of stock'),
-                  actions: [
-                    TextButton(
-                      child: const Text('OK'),
-                      onPressed: (){
-                         Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                );
-              },
-            );
-          }
-        },
-      ),
-    );
-  }
-}

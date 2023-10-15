@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 ThemeData get theme {
   return ThemeData(
@@ -12,7 +11,6 @@ ThemeData get theme {
     cardColor: Color(0xffe3e2e0),
     dialogBackgroundColor:Color(0xffe5e4d6) ,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    fontFamily: GoogleFonts.mPlusRounded1c().fontFamily,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(Color(0xffcbc9b7)),

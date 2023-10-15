@@ -59,19 +59,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
           }
         },
       ),
-      // contact us icon text button
-      TabButton(
-        route: '/contactus',
-        title: 'Contact Us',
-        iconData: Icons.contact_page_rounded,
-        onPressed: () {
-          Provider.of<PageKeyProvider>(context, listen: false).key =
-              '/contactus';
-          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
-            Navigator.pop(context);
-          }
-        },
-      ),
+
     ];
   } else {
     return [
@@ -112,18 +100,7 @@ List<TabButton> desktopNavigationAppBarActions(BuildContext context) {
           }
         },
       ),
-      // sign up icon text button
-      TabButton(
-        route: '/cart',
-        title: 'Cart',
-        iconData: Icons.shopping_cart_rounded,
-        onPressed: () {
-          Provider.of<PageKeyProvider>(context, listen: false).key = '/cart';
-          if (locator<ScaffoldService>().currentState!.isEndDrawerOpen) {
-            Navigator.pop(context);
-          }
-        },
-      ),
+
       // log in icon text button
       TabButton(
         route: '/messages',

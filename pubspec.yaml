@@ -16,13 +16,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   cached_network_image:
   firebase_core:
-  firebase_storage:
   provider:
   firebase_auth:
-  google_fonts:
-  carousel_slider:
   cloud_firestore:
-  colorful_safe_area:
   email_validator:
   flutter_hooks:
   freezed_annotation:
@@ -31,20 +27,14 @@ dependencies:
   responsive_builder:
   stacked:
   url_launcher:
-  uuid:
-  intl:
-#  firebase_messaging:
-#  flutter_local_notifications:
-#  http:
   flutter_svg:
-  pay:
+  lottie:
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-#  plugin_platform_interface:
 
 
 flutter:
@@ -55,5 +45,5 @@ flutter:
   assets:
    - assets/images/
    - assets/svg/
-   - assets/pay.json
+   - assets/lotties/
 

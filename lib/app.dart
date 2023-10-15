@@ -1,5 +1,4 @@
 import 'package:ecommerce_firebase/configs/theme.dart';
-import 'package:ecommerce_firebase/widgets/message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
