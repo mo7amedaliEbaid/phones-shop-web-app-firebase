@@ -12,7 +12,7 @@ Visit Website From Here [Here](https://onlineshop-1671a.web.app/#/)
 ## Backend
 - Firebase "Cloud Firestore"
 
-## Design Architecture
+## Architecture Pattern 
 - MVVM Pattern
 
 ## Pages
