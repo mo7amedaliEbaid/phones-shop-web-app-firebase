@@ -59,7 +59,6 @@ class MyAppState extends State<MyApp> {
               ),
               centerTitle: false,
               elevation: 6,
-              //backgroundColor: Colors.white,
               shadowColor: Colors.blueGrey,
               actions: sizingInformation.isDesktop
                   ? desktopNavigationAppBarActions(context)

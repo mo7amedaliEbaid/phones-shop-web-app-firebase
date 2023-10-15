@@ -65,6 +65,6 @@ class _MessageCardState extends State<MessageCard> {
               ),
             ),
           )
-        : Container();
+        : SizedBox.shrink();
   }
 }

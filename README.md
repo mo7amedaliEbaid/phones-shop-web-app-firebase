@@ -1,5 +1,5 @@
 # Phones shop
-Phones Shop is a fully functional website working perfectly in flutter application. The user can buy phones or post phones for sale.
+Phones Shop is a fully functional website working perfectly in flutter application. The user can browse available phones or post phones for sale.
 
 ## Web Demo
 Visit Website From Here [Here](https://onlineshop-1671a.web.app/#/)
@@ -39,7 +39,6 @@ Visit Website From Here [Here](https://onlineshop-1671a.web.app/#/)
 - firebase_auth:
 - cloud_firestore:
 - email_validator:
-- flutter_hooks:
 - freezed_annotation:
 - get_it:
 - json_annotation:

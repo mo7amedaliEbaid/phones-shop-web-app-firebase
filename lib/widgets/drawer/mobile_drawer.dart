@@ -18,7 +18,7 @@ class MobileDrawer extends StatelessWidget {
       child: ListView(
         children: [
           user == null
-              ? const DrawerHeader(child: SizedBox())
+              ? const DrawerHeader(child: SizedBox.shrink())
               : StreamBuilder<UserModel?>(
                   stream: locator<FirestoreService>().streamUser(user.uid),
                   builder: (

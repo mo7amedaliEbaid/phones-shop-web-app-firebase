@@ -230,14 +230,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.1"
-  flutter_hooks:
-    dependency: "direct main"
-    description:
-      name: flutter_hooks
-      sha256: b10cab7e0e4dbb60ff5360a740def3919aecbc672240f742a7130a2874204229
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.19.0"
   flutter_lints:
     dependency: "direct dev"
     description:
