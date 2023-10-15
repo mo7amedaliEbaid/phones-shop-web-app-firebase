@@ -1,6 +1,9 @@
 # Phones shop
 Phones Shop is a fully functional website working perfectly in flutter application. The user can buy phones or post phones for sale.
 
+## Web Demo
+Visit Website From Here [Here](https://onlineshop-1671a.web.app/#/)
+
 ## Platforms
 - Web
 - Android
@@ -9,7 +12,7 @@ Phones Shop is a fully functional website working perfectly in flutter applicati
 ## Backend
 - Firebase "Cloud Firestore"
 
-## Design Pattern
+## Design Architecture
 - MVVM Pattern
 
 ## Pages
@@ -18,16 +21,14 @@ Phones Shop is a fully functional website working perfectly in flutter applicati
 - Sign up
 - Phones (Displays Products)
 - Add Phone (As an admin page to post your product)
-- Cart
 - Contact us
 - Messages (Dispalys the history of your messages)
 
 ## Features
+- Clean Architecture
 - Responsive Design (Desktop, Mobile)
 - Sign in with email and password
 - Post your product "phone" for sale
-- Add products to your cart
-- Google Pay (only for the app)
 - Contact us by Messages, Email, Calling
 
 ## Dependencies
@@ -67,6 +68,7 @@ Fore more screen shots [Here](https://github.com/mo7amedaliEbaid/phones-shop/blo
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/phonesweb.png" width="370" />
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/signupweb.png" width="370" />
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/contactweb.png" width="370" />
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/3b0b4b24e5e1f0c42b3a08b83667fffc53ea4f3b/phones_shop_screenshots/home_desktop.png" width="370" />
 </p>
 
 <br />
