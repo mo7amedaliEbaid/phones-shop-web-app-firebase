@@ -59,8 +59,12 @@ Fore more screen shots [Here](https://github.com/mo7amedaliEbaid/phones-shop/blo
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/drawer.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/contact.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/addphone1.jpg" width="170" />
-   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/9eabba594b54b5a2020e0214616269dbbbdd3b32/phones_shop_screenshots/home_mobile.png" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/4bb0c757d7fe956d01b43f79fc925a260f1beea5/phones_shop_screenshots/signup.jpg" width="170" />
+</p>
+<p float="left">
+
+   <img src="https://github.com/mo7amedaliEbaid/phones-shop/blob/9eabba594b54b5a2020e0214616269dbbbdd3b32/phones_shop_screenshots/home_mobile.png" width="470" />
+ 
 </p>
 
 <br />
