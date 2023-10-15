@@ -29,7 +29,8 @@ Visit Website From Here [Here](https://onlineshop-1671a.web.app/#/)
 - Responsive Design (Desktop, Mobile)
 - Sign in with email and password
 - Post your product "phone" for sale
-- Contact us by Messages, Email, Calling
+- Contact us by Messages, Email, Calling.
+- Firebase Hosting.
 
 ## Dependencies
 - cached_network_image:
