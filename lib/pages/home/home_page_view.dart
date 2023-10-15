@@ -13,51 +13,83 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
     App.init(context);
-
-      return Stack(
-        children: [
-          Lottie.asset("assets/lotties/homelottie.json"),
-          Positioned(
-            bottom: size.height * .8,
-            left: size.width*0.1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return ResponsiveBuilder(builder: (
+      BuildContext context,
+      SizingInformation sizingInformation,
+    ) {
+      return sizingInformation.isDesktop
+          ? Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                RichText(
-                  text: TextSpan(
-                    text: 'Don\'t have a phone?         ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.copyWith(color: Colors.black, fontSize: 35),
-                    children: [
-                      TextSpan(
-                        text: 'Start shopping',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displaySmall!
-                            .copyWith(
-                              color: Colors.black,
+                Lottie.asset("assets/lotties/homelottie.json"),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Welcome To Our Phones Shop",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                    Space.y1!,
+                    GestureDetector(
+                      onTap: () {
+                        Provider.of<PageKeyProvider>(context, listen: false)
+                            .key = '/phones';
+                      },
+                      child: Container(
+                        height: AppDimensions.normalize(25),
+                        width: AppDimensions.normalize(100),
+                        padding: Space.all(),
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade500,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                            child: Text(
+                          "Start Shopping",
+                          style: TextStyle(
                               fontWeight: FontWeight.bold,
-                            ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Provider.of<PageKeyProvider>(context,
-                                    listen: false)
-                                .key = '/phones';
-                          },
+                              fontSize: 20,
+                              color: Colors.white),
+                        )),
                       ),
-                    ],
-                  ),
-                ),
-
+                    )
+                  ],
+                )
               ],
-            ),
-          ),
-        ],
-      );
-
+            )
+          : Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Lottie.asset("assets/lotties/homelottie.json"),
+                Text(
+                  "Welcome To Our Phones Shop",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Provider.of<PageKeyProvider>(context, listen: false).key =
+                        '/phones';
+                  },
+                  child: Container(
+                    height: AppDimensions.normalize(25),
+                    width: AppDimensions.normalize(100),
+                    padding: Space.all(),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade500,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                        child: Text(
+                      "Start Shopping",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white),
+                    )),
+                  ),
+                )
+              ],
+            );
+    });
   }
 }

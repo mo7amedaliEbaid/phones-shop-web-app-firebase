@@ -1,8 +1,7 @@
-import 'package:ecommerce_firebase/configs/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-
+import 'package:ecommerce_firebase/configs/theme.dart';
 import 'locator.dart';
 import 'pages/pages.dart';
 import 'providers/page_key_provider.dart';
